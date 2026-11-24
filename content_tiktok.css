@@ -1,0 +1,115 @@
+/* Estilos para el botón flotante y notificaciones en TikTok */
+
+.wa-tiktok-btn {
+  position: absolute;
+  z-index: 999999;
+  background: #25D366;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: auto;
+  user-select: none;
+  animation: wa-pop-in 0.2s ease-out;
+}
+
+.wa-tiktok-btn:hover {
+  background: #20bd5a;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+}
+
+.wa-tiktok-btn.saved {
+  background: #128C7E;
+  pointer-events: none;
+}
+
+.wa-tiktok-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+@keyframes wa-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Toast flotante de confirmación */
+.wa-sticker-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999999;
+  background: #111b21;
+  color: #e9edef;
+  border-left: 5px solid #25D366;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: wa-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wa-sticker-toast.fade-out {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.wa-sticker-toast-icon {
+  background: #25D366;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.wa-sticker-toast-btn {
+  background: #25D366;
+  color: #111b21;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+}
+.wa-sticker-toast-btn:hover {
+  background: #20bd5a;
+}
+
+@keyframes wa-slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

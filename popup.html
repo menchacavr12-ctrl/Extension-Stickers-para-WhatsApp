@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colección de Stickers</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Encabezado -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" class="wa-svg">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
+          </svg>
+        </div>
+        <div>
+          <h1>TikTok Stickers</h1>
+          <span id="sticker-count" class="badge">0 guardados</span>
+        </div>
+      </div>
+      <button id="btn-open-wa" class="btn-primary" title="Abrir WhatsApp Web">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+        </svg>
+        WhatsApp Web
+      </button>
+    </header>
+
+    <!-- Barra de selección -->
+    <div class="sub-bar">
+      <button id="btn-select-all" class="btn-select-toggle">Seleccionar todos</button>
+      <button id="btn-clear-all" class="btn-link" title="Vaciar toda la carpeta">Vaciar galería</button>
+    </div>
+
+    <!-- Contenedor principal de la galería -->
+    <main id="gallery-container" class="gallery-grid">
+      <!-- Inyectado dinámicamente -->
+    </main>
+
+    <!-- Estado vacío -->
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <div class="empty-icon">📁</div>
+      <h3>Tu carpeta está vacía</h3>
+      <p>Entra a <strong>TikTok</strong>, pasa el cursor sobre cualquier sticker o GIF y dale a <strong>"Guardar Sticker"</strong>.</p>
+    </div>
+
+    <!-- Barra inferior de Empaquetado (.wastickers) -->
+    <footer id="pack-bar" class="pack-action-bar">
+      <div class="pack-info">
+        <span id="selected-count-badge">0 seleccionados</span>
+        <small class="pack-hint">Paquete oficial para celular (.wastickers)</small>
+      </div>
+      <div class="pack-buttons">
+        <button id="btn-export-wa" class="btn-pack-primary" title="Genera el paquete .wastickers y lo envía a tu chat de WhatsApp Web">
+          📦 Empaquetar y Enviar a WhatsApp
+        </button>
+        <button id="btn-download-pack" class="btn-pack-secondary" title="Descargar archivo .wastickers en tu computadora">
+          💾 Descargar .wastickers
+        </button>
+      </div>
+    </footer>
+
+    <!-- Toast de retroalimentación -->
+    <div id="toast" class="popup-toast">¡Listo!</div>
+  </div>
+
+  <script src="wastickers_builder.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+/* Estilos para la Bandeja de Stickers de TikTok integrada directamente en WhatsApp Web */
+
+/* Botón inyectado junto a los emojis de WhatsApp */
+.wa-tiktok-tray-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #8696a0;
+  margin: 0 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.wa-tiktok-tray-trigger:hover {
+  background-color: rgba(134, 150, 160, 0.1);
+  color: #25D366;
+  transform: scale(1.05);
+}
+
+.wa-tiktok-tray-trigger.active {
+  color: #25D366;
+  background-color: rgba(37, 211, 102, 0.15);
+}
+
+.wa-tiktok-tray-trigger svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* Badge con el contador */
+.wa-tiktok-tray-badge {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  background: #25D366;
+  color: #111b21;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 1px 4px;
+  min-width: 14px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+/* Panel / Bandeja de Stickers integrada en WhatsApp Web */
+.wa-tiktok-panel {
+  position: absolute;
+  bottom: 64px;
+  left: 20px;
+  width: 360px;
+  max-height: 380px;
+  background: #202c33;
+  border: 1px solid #2a3942;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #e9edef;
+  animation: waTraySlideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes waTraySlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header del panel */
+.wa-tiktok-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #182229;
+  border-bottom: 1px solid #222e35;
+}
+
+.wa-tiktok-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #25D366;
+}
+
+.wa-tiktok-panel-close {
+  background: transparent;
+  border: none;
+  color: #8696a0;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.wa-tiktok-panel-close:hover {
+  color: #e9edef;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cuadrícula de stickers */
+.wa-tiktok-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px;
+  max-height: 310px;
+  overflow-y: auto;
+}
+
+.wa-tiktok-panel-grid::-webkit-scrollbar {
+  width: 5px;
+}
+.wa-tiktok-panel-grid::-webkit-scrollbar-thumb {
+  background: #374248;
+  border-radius: 3px;
+}
+
+/* Item de sticker en la bandeja */
+.wa-tiktok-panel-item {
+  position: relative;
+  height: 72px;
+  background: #111b21;
+  border-radius: 8px;
+  border: 1px solid #2a3942;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+  overflow: hidden;
+}
+
+.wa-tiktok-panel-item:hover {
+  transform: scale(1.08);
+  border-color: #25D366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  z-index: 2;
+}
+
+.wa-tiktok-panel-item img, 
+.wa-tiktok-panel-item video {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.wa-tiktok-panel-gif-tag {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #25D366;
+  font-size: 8px;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+/* Estado vacío */
+.wa-tiktok-panel-empty {
+  padding: 30px 16px;
+  text-align: center;
+  color: #8696a0;
+  font-size: 12px;
+  grid-column: span 4;
+}
+
+/* Notificación flotante en WhatsApp Web */
+.wa-ext-banner {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #111b21;
+  color: #e9edef;
+  border: 1px solid #25D366;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999999;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.wa-ext-banner.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.wa-ext-banner-icon {
+  width: 24px;
+  height: 24px;
+  background: #25D366;
+  color: #111b21;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
