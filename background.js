@@ -3,7 +3,7 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "save-to-wa-sticker",
-    title: "🟢 Guardar como Sticker de WhatsApp",
+    title: " Guardar como Sticker de WhatsApp",
     contexts: ["image", "video", "link"]
   });
   console.log("TikTok to WhatsApp Stickers listo.");
@@ -52,7 +52,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       if (tab?.id) {
         chrome.tabs.sendMessage(tab.id, {
           action: "SHOW_TOAST",
-          message: isGif ? "🎬 ¡GIF guardado para WhatsApp Web!" : "🟢 ¡Sticker guardado para WhatsApp Web!"
+          message: isGif ? "¡GIF guardado para WhatsApp Web!" : "¡Sticker guardado para WhatsApp Web!"
         }).catch(() => {});
       }
     }
